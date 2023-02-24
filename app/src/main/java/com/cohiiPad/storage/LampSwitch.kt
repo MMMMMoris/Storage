@@ -1,10 +1,7 @@
 package com.cohiiPad.storage
 
-import com.cohiiPad.storage.MainActivity
-
 object LampSwitch {
 
-    const val frequency = 38000 // The frequency of the infrared signal in Hz
     val switchIRCode = intArrayOf( // The pattern of the infrared signal
         // On, off, on, off, on, off, on, off, on
         // (Each number represents a duration in microseconds)
@@ -16,6 +13,7 @@ object LampSwitch {
         506,611,562,595,620,523,552,616,567,1658,
         531,652,493,1733,649,1621,532,1738,558,
         41719,9072,2281,585,9280)
+
     val lighterIRCode = intArrayOf(
         9113,4486,658,479,658,1602,667,1603,664,475,
         654,523,632,513,632,483,662,515,634,1595,653,
@@ -24,6 +22,7 @@ object LampSwitch {
         1604,665,482,662,516,633,513,633,483,664,505,
         633,1605,665,1605,664,476,663,1604,665,1605,
         662,1604,659,9280)
+
     val dimmerIRCode = intArrayOf(
         9071,4517,636,506,576,1691,720,1548,642,507,
         577,570,577,568,577,569,576,563,576,1692,641,
