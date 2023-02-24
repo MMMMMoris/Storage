@@ -2,6 +2,8 @@ package com.cohiiPad.storage
 
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
+import android.widget.Toast
+//import com.cohiiPad.storage.MainActivity
 
 //abstract class TileServiceActivity {
 ////    abstract val ACTION_QS_TILE: String
@@ -103,6 +105,7 @@ class TileServiceActivity : TileService() {
     //添加磁贴时调用
     override fun onTileAdded() {
         super.onTileAdded()
+
     }
 
     //移除磁贴时调用
@@ -113,6 +116,8 @@ class TileServiceActivity : TileService() {
     //点击事件
     override fun onClick() {
         super.onClick()
+        Toast.makeText(this, "淦！", Toast.LENGTH_SHORT).show()
+//        InfraredMethod().switch()
     }
 
     //只有添加后才调用
