@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity(){
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        setSupportActionBar(binding.toolbar)
         val irManager = getSystemService(Context.CONSUMER_IR_SERVICE) as ConsumerIrManager
         fun switch() {
             irManager.transmit(38000, LampSwitch.switchIRCode)
@@ -37,18 +38,27 @@ class MainActivity : AppCompatActivity(){
             dimmer()
         }
         binding.toSecondIntent.setOnClickListener {
-            val intent = Intent(this, InfraredActivity::class.java)
+//            val intent = Intent(this, InfraredActivity::class.java)
+//            startActivity(intent)
+            val intent = Intent("com.cohiiPad.storage.ACTION_START")
+            intent.addCategory("com.cohiiPad.storage.MY_CATEGORY")
             startActivity(intent)
         }
     }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //        return super.onCreateOptionsMenu(menu)
         menuInflater.inflate(R.menu.menu_main, menu)
+        menuInflater.inflate(R.menu.toolbar, menu)
         return true
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.backup -> Toast.makeText(this, "You clicked Backup",
+                Toast.LENGTH_SHORT).show()
+            R.id.delete -> Toast.makeText(this, "You clicked Delete",
+                Toast.LENGTH_SHORT).show()
+            R.id.settings -> Toast.makeText(this, "You clicked Settings",
+                Toast.LENGTH_SHORT).show()
             R.id.add_item -> Toast.makeText(this, "You clicked Add",
                 Toast.LENGTH_SHORT).show()
             R.id.remove_item -> Toast.makeText(this, "You clicked Remove",

@@ -8,13 +8,21 @@ tools:context=".InfraredActivity">
 
 
 <Button
-        android:id="@+id/lighterButton"
+        android:id="@+id/finishButton"
         android:layout_width="100dp"
         android:layout_height="75dp"
         android:layout_marginTop="271dp"
-        android:text="Lighter"
+        android:text="@string/activity2_return"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
 
+    <Button
+            android:id="@+id/urlButton"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="371dp"
+            android:text="@string/activity2_url"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

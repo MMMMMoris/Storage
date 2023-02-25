@@ -12,20 +12,20 @@
             tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.Toolbar
-                android:id="@+id/my_toolbar"
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="#000000"
+                android:background="@color/design_default_color_primary_dark"
                 app:titleTextColor="@android:color/white">
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_gravity="center"/>
+<!--        <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/app_name"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:layout_gravity="center"/>-->
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -35,7 +35,7 @@
             android:layout_width="100dp"
             android:layout_height="75dp"
             android:layout_marginTop="178dp"
-            android:text="Switch"
+            android:text="@string/Switch"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -44,7 +44,7 @@
             android:layout_width="100dp"
             android:layout_height="75dp"
             android:layout_marginTop="271dp"
-            android:text="Lighter"
+            android:text="@string/Lighter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -52,15 +52,17 @@
             android:id="@+id/dimmerButton"
             android:layout_width="100dp"
             android:layout_height="75dp"
-            android:layout_marginTop="362dp"
-            android:text="Dimmer"
+            android:layout_marginTop="364dp"
+            android:text="@string/Dimmer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
     <Button
-            android:text="Second"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/toSecondIntent"
+            android:text="@string/secondIntent"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:id="@+id/toSecondIntent"
+            android:layout_marginTop="457dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="466dp"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

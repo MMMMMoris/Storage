@@ -1,4 +1,16 @@
 <resources>
+
     <string name="app_name">Storage</string>
+    <string name="ch_name">世托利奇</string>
     <string name="infrared">Lample</string>
+    <string name="Switch">Switch</string>
+    <string name="Lighter">Lighter</string>
+    <string name="Dimmer">dimmer</string>
+    <string name="secondIntent">Second</string>
+    <string name="menu_1">Add</string>
+    <string name="menu_2">Remove</string>
+
+    <string name="activity2_return">Return</string>
+    <string name="activity2_url">Open Cohii</string>
+
 </resources>
