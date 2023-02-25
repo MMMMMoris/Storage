@@ -2,11 +2,10 @@ package com.cohiiPad.storage
 
 import android.content.Context
 import android.hardware.ConsumerIrManager
-import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 
-object LampSwitch{
-
+object LampSwitch: TileService(){
+        var lighted = true
         private val switchIRCode = intArrayOf( // The pattern of the infrared signal
             // On, off, on, off, on, off, on, off, on
             // (Each number represents a duration in microseconds)
@@ -39,13 +38,15 @@ object LampSwitch{
             689, 1575, 636, 1628, 577, 1682, 643, 1627, 579, 1682,
             805, 1466, 570, 9280
         )
+        fun setQuickSettingColor() {
+            lighted = ! lighted
+        }
         private lateinit var irManager: ConsumerIrManager
         fun switch(context: Context) {
             if (!::irManager.isInitialized) {
                 irManager = context.getSystemService(Context.CONSUMER_IR_SERVICE) as ConsumerIrManager
             }
             irManager.transmit(38000, switchIRCode)
-//            TileServiceActivity.setTileStatus()
         }
         fun lighter(context: Context) {
             if (!::irManager.isInitialized) {
@@ -60,18 +61,4 @@ object LampSwitch{
             irManager.transmit(38000, dimmerIRCode)
         }
 }
-
-//class UpdateTileBroadcastReceiver : BroadcastReceiver() {
-//    companion object {
-//        const val ACTION_UPDATE_TILE = "com.example.myapp.UPDATE_TILE"
-//    }
-//
-//    override fun onReceive(context: Context?, intent: Intent?) {
-//        if (intent?.action == ACTION_UPDATE_TILE) {
-//            // 更新磁贴状态
-//            // ...
-//        }
-//
-//    }
-//}
 

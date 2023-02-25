@@ -52,13 +52,6 @@
                 </intent-filter>
         </service>
 
-<!--        <receiver android:name=".TileServiceActivity" android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />-->
-<!--            </intent-filter>-->
-<!--            <meta-data android:name="android.appwidget.provider"-->
-<!--                       android:resource="@xml/example_appwidget_info" />-->
-<!--        </receiver>-->
         <receiver
                 android:name=".LampBroadcastReceiver"
                 android:enabled="true"
