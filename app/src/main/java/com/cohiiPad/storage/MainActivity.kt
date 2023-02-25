@@ -1,41 +1,35 @@
 package com.cohiiPad.storage
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
-import android.hardware.ConsumerIrManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.cohiiPad.storage.databinding.ActivityMainBinding
 
+
 class MainActivity : AppCompatActivity(){
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
+
         setContentView(view)
         setSupportActionBar(binding.toolbar)
-        val irManager = getSystemService(Context.CONSUMER_IR_SERVICE) as ConsumerIrManager
-        fun switch() {
-            irManager.transmit(38000, LampSwitch.switchIRCode)
-        }
-        fun lighter() {
-            irManager.transmit(38000, LampSwitch.lighterIRCode)
-        }
-        fun dimmer() {
-            irManager.transmit(38000, LampSwitch.dimmerIRCode)
-        }
         binding.switchButton.setOnClickListener {
-            switch()
+            LampSwitch.switch(applicationContext)
+            val intent = Intent("com.cohii.storage.MY_BROADCAST")
+            intent.setPackage(packageName)
+            sendBroadcast(intent)
         }
         binding.lighterButton.setOnClickListener {
-            lighter()
+            LampSwitch.lighter(applicationContext)
         }
         binding.dimmerButton.setOnClickListener {
-            dimmer()
+            LampSwitch.dimmer(applicationContext)
         }
         binding.toSecondIntent.setOnClickListener {
 //            val intent = Intent(this, InfraredActivity::class.java)
@@ -46,7 +40,6 @@ class MainActivity : AppCompatActivity(){
         }
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        return super.onCreateOptionsMenu(menu)
         menuInflater.inflate(R.menu.menu_main, menu)
         menuInflater.inflate(R.menu.toolbar, menu)
         return true
@@ -64,17 +57,6 @@ class MainActivity : AppCompatActivity(){
             R.id.remove_item -> Toast.makeText(this, "You clicked Remove",
                 Toast.LENGTH_SHORT).show()
         }
-        return true }
+        return true
+    }
 }
-//public class InfraredMethod: AppCompatActivity(){
-//    private val irManager = getSystemService(Context.CONSUMER_IR_SERVICE) as ConsumerIrManager
-//    fun switch() {
-//        irManager.transmit(LampSwitch.frequency, LampSwitch.switchIRCode)
-//    }
-//    fun lighter() {
-//        irManager.transmit(LampSwitch.frequency, LampSwitch.lighterIRCode)
-//    }
-//    fun dimmer() {
-//        irManager.transmit(LampSwitch.frequency, LampSwitch.dimmerIRCode)
-//    }
-//}
