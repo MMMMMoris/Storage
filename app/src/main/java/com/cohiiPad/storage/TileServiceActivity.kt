@@ -42,5 +42,5 @@ class TileServiceActivity : TileService() {
             qsTile.state = Tile.STATE_ACTIVE
             qsTile.updateTile()
         }
-    }
+    } // 03a572d 版本的语法糖会导致错误？
 }
