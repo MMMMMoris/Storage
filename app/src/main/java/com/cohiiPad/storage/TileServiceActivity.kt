@@ -1,26 +1,12 @@
 package com.cohiiPad.storage
 
-import android.appwidget.AppWidgetManager
+
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
-import android.content.Context
-import android.widget.RemoteViews
+import android.widget.Toast
 
 
 class TileServiceActivity : TileService() {
-
-     fun onUpdate(context: Context?, appWidgetManager: AppWidgetManager?, appWidgetIds: IntArray?) {
-        // Get the state from the broadcast intent
-        val state = AppWidgetManager.getInstance(context).getAppWidgetOptions(appWidgetIds?.get(0) ?: 0).getBoolean("state")
-
-        // Update the tile with a RemoteViews object
-        val views = RemoteViews(context?.packageName, R.id.my_tile)
-        views.setTextViewText(R.id.tile_text_view, if (state) "ON" else "OFF")
-
-        // Apply the update to the widget
-         appWidgetIds?.get(0)?.let { appWidgetManager?.updateAppWidget(it, views) }
-
-    }
 
     // Define a function to handle click events on your switch button in your app
     override fun onTileAdded() {
@@ -43,23 +29,26 @@ class TileServiceActivity : TileService() {
     override fun onStartListening() {
         super.onStartListening()
 //        setQuickSettingColor()
+//        if (qsTile.state == Tile.STATE_INACTIVE){
+//            Toast.makeText(this, "未激活", Toast.LENGTH_SHORT).show()
+//        }
+//        else{
+//            Toast.makeText(this, "激活", Toast.LENGTH_SHORT).show()
+//        }
     }
 
     //通知栏关闭
     override fun onStopListening() {
         super.onStopListening()
     }
-
     private fun setQuickSettingColor() {
-        if( LampSwitch.lighted) {
+        if(qsTile.state == Tile.STATE_ACTIVE) {
             qsTile.state = Tile.STATE_INACTIVE
             qsTile.updateTile()
-            LampSwitch.lighted = false
         }
         else{
             qsTile.state = Tile.STATE_ACTIVE
             qsTile.updateTile()
-            LampSwitch.lighted = true
         }
     }
 }

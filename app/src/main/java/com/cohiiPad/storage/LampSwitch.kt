@@ -5,7 +5,6 @@ import android.hardware.ConsumerIrManager
 import android.service.quicksettings.TileService
 
 object LampSwitch: TileService(){
-        var lighted = true
         private val switchIRCode = intArrayOf(
             // The pattern of the infrared signal
             // On, off, on, off, on, off, on, off, on
