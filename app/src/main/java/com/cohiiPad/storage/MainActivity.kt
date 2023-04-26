@@ -21,22 +21,14 @@ class MainActivity : AppCompatActivity(){
         setSupportActionBar(binding.toolbar)
         binding.switchButton.setOnClickListener {
             LampSwitch.switch(this)
-//            val intent = Intent("com.cohii.storage.MY_BROADCAST")
-//            intent.setPackage(packageName)
-//            sendBroadcast(intent)
-//            updateTile(true)
         }
         binding.lighterButton.setOnClickListener {
             LampSwitch.lighter(this)
-//            lighter(applicationContext)
         }
         binding.dimmerButton.setOnClickListener {
             LampSwitch.dimmer(this)
-//            dimmer(applicationContext)
         }
         binding.toSecondIntent.setOnClickListener {
-//            val intent = Intent(this, InfraredActivity::class.java)
-//            startActivity(intent)
             val intent = Intent("com.cohiiPad.storage.ACTION_START")
             intent.addCategory("com.cohiiPad.storage.MY_CATEGORY")
             startActivity(intent)
@@ -69,7 +61,10 @@ class MainActivity : AppCompatActivity(){
         intent.putExtra("state", state)
         sendBroadcast(intent)
     }
-//    }
 }
 
-//我现在有一个用 kotlin 写的台灯遥控器 android app，我注册了一个tile service，可以通过点击通知栏就能够控制台灯的开关，同时更新通知栏上面的磁贴的激活与否的状态。现在我想要通过点击app MainActivity的按钮，同时也能实现状态栏磁贴状态的更新，这该怎么做到？
+//我现在有一个用 kotlin 写的台灯遥控器 android app，
+// 我注册了一个tile service，可以通过点击通知栏就能够控制台灯的开关，
+// 同时更新通知栏上面的磁贴的激活与否的状态。
+// 现在我想要通过点击app MainActivity的按钮，
+// 同时也能实现状态栏磁贴状态的更新，这该怎么做到？

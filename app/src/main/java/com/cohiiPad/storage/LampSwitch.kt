@@ -38,9 +38,7 @@ object LampSwitch: TileService(){
             689, 1575, 636, 1628, 577, 1682, 643, 1627, 579, 1682,
             805, 1466, 570, 9280
         )
-//        fun setQuickSettingColor() {
-//            lighted = ! lighted
-//        }
+
         private lateinit var irManager: ConsumerIrManager
         fun switch(context: Context) {
             if (!::irManager.isInitialized) {

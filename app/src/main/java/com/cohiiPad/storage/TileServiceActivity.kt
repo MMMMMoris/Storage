@@ -3,7 +3,6 @@ package com.cohiiPad.storage
 
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
-import android.widget.Toast
 
 
 class TileServiceActivity : TileService() {
@@ -28,13 +27,6 @@ class TileServiceActivity : TileService() {
     //通知栏下拉时调用
     override fun onStartListening() {
         super.onStartListening()
-//        setQuickSettingColor()
-//        if (qsTile.state == Tile.STATE_INACTIVE){
-//            Toast.makeText(this, "未激活", Toast.LENGTH_SHORT).show()
-//        }
-//        else{
-//            Toast.makeText(this, "激活", Toast.LENGTH_SHORT).show()
-//        }
     }
 
     //通知栏关闭
