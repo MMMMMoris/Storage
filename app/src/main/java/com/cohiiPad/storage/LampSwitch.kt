@@ -6,9 +6,10 @@ import android.service.quicksettings.TileService
 
 object LampSwitch: TileService(){
         var lighted = true
-        private val switchIRCode = intArrayOf( // The pattern of the infrared signal
+        private val switchIRCode = intArrayOf(
+            // The pattern of the infrared signal
             // On, off, on, off, on, off, on, off, on
-            // (Each number represents a duration in microseconds)
+            // Each number represents a duration in microseconds
             9059, 4543, 526, 636, 498, 1742, 584, 1708, 614,
             522, 588, 562, 510, 628, 518, 644, 490, 621, 528,
             1740, 651, 1618, 575, 573, 531, 639, 579, 586, 489,
@@ -38,9 +39,9 @@ object LampSwitch: TileService(){
             689, 1575, 636, 1628, 577, 1682, 643, 1627, 579, 1682,
             805, 1466, 570, 9280
         )
-        fun setQuickSettingColor() {
-            lighted = ! lighted
-        }
+//        fun setQuickSettingColor() {
+//            lighted = ! lighted
+//        }
         private lateinit var irManager: ConsumerIrManager
         fun switch(context: Context) {
             if (!::irManager.isInitialized) {
