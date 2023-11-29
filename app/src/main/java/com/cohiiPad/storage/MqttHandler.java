@@ -58,11 +58,12 @@ package com.cohiiPad.storage;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+import org.jetbrains.annotations.NotNull;
 
 public class MqttHandler {
     private MqttClient client;
 
-    public void connect(String brokerUrl, String clientId, String userName, String password) {
+    public void connect(String brokerUrl, String clientId, String userName, @NotNull String password) {
         try {
             // Set up the persistence layer
             MemoryPersistence persistence = new MemoryPersistence();
@@ -88,7 +89,7 @@ public class MqttHandler {
         }
     }
 
-    public void publish(String topic, String message) {
+    public void publish(String topic, @NotNull String message) {
         try {
             MqttMessage mqttMessage = new MqttMessage(message.getBytes());
             client.publish(topic, mqttMessage);
