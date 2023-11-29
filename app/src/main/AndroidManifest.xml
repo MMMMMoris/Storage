@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.TRANSMIT_IR"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <!--  指示应用程序需要让设备保持开启状态的机制，通常配合 WakeLock 一起使用  -->
+    <uses-permission android:name="android.permission.INTERNET"/> <!-- 指示应用程序需要让设备保持开启状态的机制，通常配合 WakeLock 一起使用 -->
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <!--    收起通知栏需要申请权限-->
+
     <application
             android:allowBackup="true"
             android:dataExtractionRules="@xml/data_extraction_rules"
@@ -21,49 +21,51 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Storage"
             tools:targetApi="31">
+        <activity
+                android:name=".NotificationActivity"
+                android:exported="false"/>
+
         <meta-data
                 android:name="com.cohiad.sage.mqtt_channel"
                 android:value="MQTT Channel"/>
+
         <activity
                 android:name=".MainActivity"
                 android:exported="true"
                 android:theme="@style/Theme.Storage">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.CREATE_SHORTCUT"/>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
 
             <meta-data
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
-
-        <activity android:name=".InfraredActivity" android:exported="true">
-
+        <activity
+                android:name=".InfraredActivity"
+                android:exported="true">
             <intent-filter>
                 <action android:name="com.cohiiPad.storage.ACTION_START"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="com.cohiiPad.storage.MY_CATEGORY"/>
             </intent-filter>
-
         </activity>
 
         <service
                 android:name=".TileServiceActivity"
-                android:label="@string/infrared"
+                android:exported="true"
                 android:icon="@drawable/endurance_3"
-                android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
-                android:exported="true">
-
+                android:label="@string/infrared"
+                android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
-
         </service>
         <service android:name="org.eclipse.paho.android.service.MqttService"/>
 
@@ -73,13 +75,10 @@
                 android:exported="true"
                 android:permission="TODO"
                 tools:ignore="ExportedReceiver">
-
             <intent-filter>
                 <action android:name="com.cohii.storage.MY_BROADCAST"/>
             </intent-filter>
-
         </receiver>
-
     </application>
 
 </manifest>

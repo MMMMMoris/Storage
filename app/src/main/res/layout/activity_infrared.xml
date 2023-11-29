@@ -18,8 +18,8 @@ tools:context=".InfraredActivity">
 
     <Button
             android:id="@+id/urlButton"
-            android:layout_width="100dp"
-            android:layout_height="75dp"
+            android:layout_width="145dp"
+            android:layout_height="59dp"
             android:layout_marginTop="371dp"
             android:text="@string/activity2_url"
             app:layout_constraintStart_toStartOf="parent"

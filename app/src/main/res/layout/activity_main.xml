@@ -64,5 +64,13 @@
             android:layout_marginTop="457dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
+    <Button
+            android:text="@string/listen"
+            android:layout_width="123dp"
+            android:layout_height="70dp"
+            android:id="@+id/listenButton"
+            android:layout_marginTop="552dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.498"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
