@@ -1,0 +1,44 @@
+<resources>
+
+    <string name="app_name">Storage</string>
+    <string name="ch_name">世托利奇</string>
+    <string name="infrared">Lample</string>
+    <string name="Switch">Switch</string>
+    <string name="Lighter">Lighter</string>
+    <string name="Dimmer">dimmer</string>
+    <string name="secondIntent">Second</string>
+    <string name="mqttActivityStart">MQTT\n客户端</string>
+    <string name="stopListen">停止监听</string>
+    <string name="menu_1">Add</string>
+    <string name="menu_2">Remove</string>
+    <string name="testButton">服务测试</string>
+    <string name="bindServiceButton">绑定服务</string>
+    <string name="unbindServiceButton">解绑服务</string>
+
+    <string name="activity2_return">Return</string>
+    <string name="activity2_url">send notification</string>
+    <string name="activity2_changeTextButtonText">Change Text</string>
+    <string name="activity2_originalText">Hello Android</string>
+
+    <!--    MQTT-->
+    <string name="connection">Connection</string>
+    <string name="subscription">Subscription</string>
+    <string name="publish">Publish</string>
+    <string name="message">Messages</string>
+    <string name="host">Host</string>
+    <string name="port">Port</string>
+    <string name="client_id">Client ID</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="tls_ssl">TLS/SSL</string>
+    <string name="true_str">True</string>
+    <string name="false_str">False</string>
+    <string name="topic">Topic</string>
+    <string name="payload">Payload</string>
+    <string name="qos">QoS</string>
+    <string name="retained">Retained</string>
+    <string name="subscribe">Subscribe</string>
+
+</resources>

@@ -51,17 +51,19 @@ class MqttHandler {
         }
     }
 }*/
-
 //JAVA VERSION
-package com.cohiiPad.storage;
+/*package com.cohiiPad.storage;
+
 
 import org.eclipse.paho.client.mqttv3.*;
-import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.jetbrains.annotations.NotNull;
 
+
 public class MqttHandler {
     private MqttClient client;
+    private MqttMessage receivedMessage;
+    private IMqttMessageListener iMqttMessageListener;
 
     public void connect(String brokerUrl, String clientId, String userName, @NotNull String password) {
         try {
@@ -98,6 +100,10 @@ public class MqttHandler {
         }
     }
 
+    public MqttMessage getLastReceivedMessage() {
+        return receivedMessage;
+    }
+
     public void subscribe(String topic) {
         try {
             client.subscribe(topic);
@@ -109,6 +115,7 @@ public class MqttHandler {
 
                 @Override
                 public void messageArrived(String topic, MqttMessage message) throws Exception {
+                    receivedMessage = message;
                     System.out.println("Message received:");
                     System.out.println("Topic: " + topic);
                     System.out.println("Message: " + new String(message.getPayload()));
@@ -121,6 +128,71 @@ public class MqttHandler {
             });
         } catch (MqttException e) {
             e.printStackTrace();
+        }
+    }
+}*/
+package com.cohiiPad.storage
+
+import org.eclipse.paho.client.mqttv3.*
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence
+
+class MqttHandler {
+    private var client: MqttClient? = null
+    var lastReceivedMessage: MqttMessage? = null
+        private set
+    private val iMqttMessageListener: IMqttMessageListener? = null
+    fun connect(brokerUrl: String?, clientId: String?, userName: String?, password: String) {
+        try {
+            // Set up the persistence layer
+            val persistence = MemoryPersistence()
+            // Initialize the MQTT client
+            client = MqttClient(brokerUrl, clientId, persistence)
+            // Set up the connection options
+            val connectOptions = MqttConnectOptions()
+            connectOptions.userName = userName
+            connectOptions.password = password.toCharArray()
+            connectOptions.isCleanSession = true
+            // Connect to the broker
+            client!!.connect(connectOptions)
+        } catch (e: MqttException) {
+            e.printStackTrace()
+        }
+    }
+
+    fun disconnect() {
+        try {
+            client!!.disconnect()
+        } catch (e: MqttException) {
+            e.printStackTrace()
+        }
+    }
+
+    fun publish(topic: String?, message: String) {
+        try {
+            val mqttMessage = MqttMessage(message.toByteArray())
+            client!!.publish(topic, mqttMessage)
+        } catch (e: MqttException) {
+            e.printStackTrace()
+        }
+    }
+
+    fun subscribe(topic: String?) {
+        try {
+            client!!.subscribe(topic)
+            client!!.setCallback(object : MqttCallback {
+                override fun connectionLost(cause: Throwable) {}
+                @Throws(Exception::class)
+                override fun messageArrived(topic: String, message: MqttMessage) {
+                    lastReceivedMessage = message
+                    println("Message received:")
+                    println("Topic: $topic")
+                    println("Message: " + String(message.payload))
+                }
+
+                override fun deliveryComplete(token: IMqttDeliveryToken) {}
+            })
+        } catch (e: MqttException) {
+            e.printStackTrace()
         }
     }
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/design_default_color_primary_dark"
+                app:titleTextColor="@android:color/white">
+
+         <!--           <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/app_name"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"/>-->
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <Button
+            android:id="@+id/switchButton"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="104dp"
+            android:text="@string/Switch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"/>
+    <Button
+            android:id="@+id/dimmerButton"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="288dp"
+            android:text="@string/Dimmer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"/>
+    <Button
+            android:text="@string/secondIntent"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:id="@+id/toSecondIntent"
+            android:layout_marginTop="384dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.498"/>
+    <!--<Button
+            android:text="@string/testButton"
+            android:layout_width="123dp"
+            android:layout_height="70dp"
+            android:id="@+id/testButton"
+            android:layout_marginTop="660dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.496"/>-->
+    <Button
+            android:text="@string/mqttActivityStart"
+            android:layout_width="123dp"
+            android:layout_height="70dp"
+            android:id="@+id/mqttActivityStartButton"
+            android:layout_marginTop="476dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.493"/>
+    <Button
+            android:id="@+id/lighterButton"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="196dp"
+            android:text="@string/Lighter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"/>
+    <Button
+            android:text="@string/stopListen"
+            android:layout_width="123dp"
+            android:layout_height="70dp"
+            android:id="@+id/stopListenButton"
+            android:layout_marginTop="568dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.496"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

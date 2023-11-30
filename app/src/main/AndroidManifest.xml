@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32"/> <!--mqtt-->
 
     <application
             android:allowBackup="true"
@@ -21,13 +22,34 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Storage"
             tools:targetApi="31">
+        <!--<activity
+                android:name=".test.MainActivity"
+                android:exported="true">
+            <intent-filter>
+                <action android:name="com.cohiiPad.storage.test.ACTION_START"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.cohiiPad.storage.TEST_CATEGORY"/>
+            </intent-filter>
+        </activity>-->
         <activity
-                android:name=".NotificationActivity"
-                android:exported="false"/>
-
-        <meta-data
-                android:name="com.cohiad.sage.mqtt_channel"
-                android:value="MQTT Channel"/>
+                android:name=".InfraredActivity"
+                android:exported="true">
+            <!--exported="false" 的话,在MainActivity 点击就会打不开,提示 No Activity found to handle Intent-->
+            <intent-filter>
+                <action android:name="com.cohiiPad.storage.ACTION_START"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.cohiiPad.storage.MY_CATEGORY"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".MqttActivity"
+                android:exported="true">
+            <intent-filter>
+                <action android:name="com.cohiiPad.storage.MQTT_START"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.cohiiPad.storage.MQTT_CATEGORY"/>
+            </intent-filter>
+        </activity>
 
         <activity
                 android:name=".MainActivity"
@@ -46,17 +68,6 @@
                     android:name="android.app.lib_name"
                     android:value=""/>
         </activity>
-        <activity
-                android:name=".InfraredActivity"
-                android:exported="true">
-            <intent-filter>
-                <action android:name="com.cohiiPad.storage.ACTION_START"/>
-
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="com.cohiiPad.storage.MY_CATEGORY"/>
-            </intent-filter>
-        </activity>
-
         <service
                 android:name=".TileServiceActivity"
                 android:exported="true"
@@ -68,7 +79,13 @@
             </intent-filter>
         </service>
         <service android:name="org.eclipse.paho.android.service.MqttService"/>
-
+        <service android:name="info.mqtt.android.service.MqttService"/>
+        <!--
+        <service
+                android:name=".MqttClientManager"
+                android:exported="true" android:permission="TODO">
+        </service>
+        -->
         <receiver
                 android:name=".LampBroadcastReceiver"
                 android:enabled="true"
